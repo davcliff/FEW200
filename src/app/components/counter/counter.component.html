@@ -1,0 +1,11 @@
+<div class="row">
+  <button (click)="decrement()"
+          class="btn btn-sm btn-primary">-</button>
+  <span>{{ count$ | async }}</span>
+  <button (click)="increment()"
+          class="btn btn-sm btn-primary">+</button>
+</div>
+<div class="row">
+  <button (click)="reset()"
+          class="btn btn-sm btn-warning">Reset</button>
+</div>

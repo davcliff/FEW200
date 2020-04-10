@@ -12,6 +12,8 @@ import { CounterEffects } from './effects/counter.effects';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { SettingsComponent } from './components/settings/settings.component';
 import { NavComponent } from './components/nav/nav.component';
+import { CountingByComponent } from './components/counting-by/counting-by.component';
+import { StoreRouterConnectingModule } from '@ngrx/router-store';
 
 
 @NgModule({
@@ -20,14 +22,16 @@ import { NavComponent } from './components/nav/nav.component';
     CounterComponent,
     DashboardComponent,
     SettingsComponent,
-    NavComponent
+    NavComponent,
+    CountingByComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     StoreModule.forRoot(reducers),
     StoreDevtoolsModule.instrument(),
-    EffectsModule.forRoot([CounterEffects])
+    EffectsModule.forRoot([CounterEffects]),
+    StoreRouterConnectingModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

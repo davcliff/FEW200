@@ -1,17 +1,19 @@
-<div class="row">
-  <button (click)="decrement()"
-          class="btn btn-sm btn-primary">-</button>
-  <span>{{ count$ | async }}</span>
-  <button (click)="increment()"
-          class="btn btn-sm btn-primary">+</button>
-</div>
-<div class="row">
-  <button (click)="reset()"
-          [disabled]="(count$ | async) === 0"
-          class="btn btn-sm btn-warning">Reset</button>
+<div class="counter-group">
+  <div class="row">
+    <button (click)="decrement()"
+            class="btn btn-sm btn-primary">-</button>
+    <span>{{ count$ | async }}</span>
+    <button (click)="increment()"
+            class="btn btn-sm btn-primary">+</button>
+  </div>
+  <div class="row">
+    <button (click)="reset()"
+            [disabled]="(count$ | async) === 0"
+            class="btn btn-sm btn-warning">Reset</button>
+  </div>
 </div>
 
-<div class="btn-group"
+<!-- <div class="btn-group"
      role="group"
      aria-label="Basic Example">
   <button type="button"
@@ -26,6 +28,6 @@
           [disabled]="(by$ | async) === 5"
           (click)="countBySet(5)"
           class="btn btn-secondary">Count by 5</button>
-</div>
+</div> -->
 
 <p>You are counting by {{ by$ | async }}</p>

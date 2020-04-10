@@ -14,6 +14,7 @@ import { SettingsComponent } from './components/settings/settings.component';
 import { NavComponent } from './components/nav/nav.component';
 import { CountingByComponent } from './components/counting-by/counting-by.component';
 import { StoreRouterConnectingModule } from '@ngrx/router-store';
+import { MusicModule } from './features/music/music.module';
 
 
 @NgModule({
@@ -28,6 +29,7 @@ import { StoreRouterConnectingModule } from '@ngrx/router-store';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    MusicModule,
     StoreModule.forRoot(reducers),
     StoreDevtoolsModule.instrument(),
     EffectsModule.forRoot([CounterEffects]),

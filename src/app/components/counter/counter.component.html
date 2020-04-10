@@ -7,5 +7,25 @@
 </div>
 <div class="row">
   <button (click)="reset()"
+          [disabled]="(count$ | async) === 0"
           class="btn btn-sm btn-warning">Reset</button>
 </div>
+
+<div class="btn-group"
+     role="group"
+     aria-label="Basic Example">
+  <button type="button"
+          [disabled]="(by$ | async) === 1"
+          (click)="countBySet(1)"
+          class="btn btn-secondary">Count by 1</button>
+  <button type="button"
+          [disabled]="(by$ | async) === 3"
+          (click)="countBySet(3)"
+          class="btn btn-secondary">Count by 3</button>
+  <button type="button"
+          [disabled]="(by$ | async) === 5"
+          (click)="countBySet(5)"
+          class="btn btn-secondary">Count by 5</button>
+</div>
+
+<p>You are counting by {{ by$ | async }}</p>

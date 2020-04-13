@@ -9,6 +9,21 @@ import { SongEntity } from '../reducers/songs.reducer';
 @Injectable()
 export class SongsEffects {
 
+  // songAdded => (send it to the API, wait for a response) =>
+  saveSong$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(songActions.songAdded),
+      switchMap((oa) => this.client.post<SongEntity>(environment.songsUrl, {
+        title: oa.payload.title,
+        artist: oa.payload.artist,
+        album: oa.payload.album,
+        year: oa.payload.year
+      }).pipe(
+        map(result => songActions.songAddedSuccessfully({ oldId: oa.payload.id, payload: result }))
+      ))
+    ), { dispatch: true }
+  );
+
   loadSongs$ = createEffect(() =>
     this.actions$.pipe(
       ofType(songActions.loadSongs),
@@ -19,7 +34,7 @@ export class SongsEffects {
         )
       )
     )
-    , { dispatch: false }
+    , { dispatch: true }
   );
 
   constructor(private actions$: Actions, private client: HttpClient) { }

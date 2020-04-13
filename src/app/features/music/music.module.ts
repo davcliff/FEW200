@@ -9,6 +9,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { AppEffects } from './effects/app.effects';
 import { HttpClientModule } from '@angular/common/http';
 import { SongsEffects } from './effects/songs.effects';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -17,6 +18,7 @@ import { SongsEffects } from './effects/songs.effects';
   imports: [
     CommonModule,
     HttpClientModule,
+    ReactiveFormsModule,
     StoreModule.forFeature(featureName, reducers),
     EffectsModule.forFeature([AppEffects, SongsEffects])
   ],
